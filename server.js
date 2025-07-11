@@ -2,6 +2,9 @@ const express = require('express');
 const fs = require('fs');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
+
+
 
 const app = express();
 const PORT = 3000
@@ -9,6 +12,7 @@ const FILE = './todos.json'
 
 app.use(cors())
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'public')));
 
 // function to help read to-dos
 function readTodos() {
